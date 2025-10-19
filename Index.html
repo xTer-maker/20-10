@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <!-- Đảm bảo khả năng tương thích trên mọi thiết bị di động -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Chúc Tặng Phái Đẹp 12A1 - 20/11</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Cấu hình Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden; /* Ngăn cuộn trang */
+            background-color: #fce7f3; /* Pink nhẹ ban đầu */
+            transition: background-color 2s ease-in-out;
+            touch-action: manipulation; /* Tối ưu hóa phản hồi chạm trên di động */
+        }
+
+        /* Hiệu ứng rung rinh cho hộp quà */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            20% { transform: translate(-3px, 0px) rotate(-1deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            80% { transform: translate(-1px, -1px) rotate(-1deg); }
+            100% { transform: translate(1px, 1px) rotate(0deg); }
+        }
+
+        .gift-box-shake {
+            animation: shake 0.5s infinite;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        /* Hiệu ứng chữ phát sáng cầu vồng */
+        .rainbow-text-glow {
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #ec4899; /* Màu hồng đậm chính */
+            text-shadow:
+                0 0 5px #ff0000, /* Đỏ */
+                0 0 8px #ff7f00, /* Cam */
+                0 0 11px #ffff00, /* Vàng */
+                0 0 14px #00ff00, /* Xanh lá */
+                0 0 17px #0000ff, /* Xanh dương */
+                0 0 20px #4b0082, /* Chàm */
+                0 0 23px #9400d3; /* Tím */
+            transition: opacity 1s;
+        }
+
+        /* Hiệu ứng hoa hồng bay lên/xuống (Roses) */
+        .rose {
+            position: absolute;
+            color: #e30b5c;
+            font-size: 20px;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.8;
+            transition: opacity 2s;
+        }
+
+        @keyframes float-up-down {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .floating-rose {
+            animation: float-up-down 4s infinite ease-in-out;
+        }
+
+        /* Container chính cho hiệu ứng chuyển cảnh 'lia cam' */
+        .viewport-container {
+            height: 100vh;
+            width: 100vw;
+            /* Tăng thời gian chuyển cảnh để mượt mà hơn trên mọi thiết bị */
+            transition: transform 3.5s cubic-bezier(0.5, 0, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .viewport-opened {
+            transform: translateY(-50vh); /* Giả lập 'lia cam' lên trên hộp quà */
+        }
+
+        /* Hiệu ứng nền hồng đậm nhạt (Pulsing background) */
+        @keyframes color-pulse {
+            0% { background-color: #fb7185; }
+            50% { background-color: #f43f5e; }
+            100% { background-color: #fb7185; }
+        }
+
+        .final-bg-pulse {
+            animation: color-pulse 4s infinite alternate ease-in-out;
+        }
+
+        /* Hộp quà - sử dụng SVG đơn giản */
+        .gift-svg {
+            width: 100%;
+            height: 100%;
+            max-width: 150px; /* Giới hạn kích thước trên desktop */
+            max-height: 150px;
+        }
+
+        /* Vùng quà tặng sau khi mở */
+        .gift-message {
+            position: absolute;
+            top: 150vh; /* Ban đầu nằm dưới màn hình */
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0);
+            opacity: 0;
+            transition: opacity 2s ease-in 1s, background 0.5s ease-in;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .open-light {
+            background: rgba(255, 255, 255, 0.98); /* Ánh sáng trắng mạnh mẽ hơn */
+            opacity: 1;
+        }
+
+        /* Hiệu ứng cánh hoa rơi */
+        .falling-rose {
+            position: absolute;
+            top: -10vh;
+            color: #e30b5c;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- CONTAINER CHÍNH - Dùng để 'LIA CAM' -->
+    <div id="viewportContainer" class="viewport-container bg-pink-200">
+
+        <!-- MÀN HÌNH CHỜ (TOP SCREEN) -->
+        <div class="flex flex-col items-center justify-center h-screen w-full p-4 relative">
+
+            <!-- Dòng chữ lớn (Tối ưu Responsive) -->
+            <h1 class="text-3xl sm:text-4xl lg:text-6xl text-center mb-3 rainbow-text-glow uppercase tracking-wider max-w-4xl mx-auto">
+                HỘP QUÀ MÀ CHÚNG TÔI DÀNH TẶNG CHO CÁC BẠN
+            </h1>
+
+            <!-- Dòng chữ nhỏ (Tối ưu Responsive) -->
+            <p class="text-base sm:text-xl lg:text-2xl text-center mb-8 rainbow-text-glow font-bold">
+                nhấn vào để mở quà
+            </p>
+
+            <!-- Hộp quà SVG với hiệu ứng rung lắc (Tối ưu Responsive size) -->
+            <!-- Touch target size được đảm bảo bằng padding ngầm và kích thước SVG -->
+            <div id="giftBox" class="gift-box-shake w-32 h-32 sm:w-40 sm:h-40" onclick="openGift()">
+                <!-- Icon hộp quà (thay vì hình ảnh) -->
+                <svg class="gift-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill="#e30b5c" d="M11 20H13V22H11V20Z" />
+                    <path fill="#e30b5c" d="M12 2C16.41 2 20 5.59 20 10C20 12.04 19.34 13.91 18.23 15.42C18.23 15.42 18.23 15.42 18.23 15.42L12 22L5.77 15.42C5.77 15.42 5.77 15.42 5.77 15.42C4.66 13.91 4 12.04 4 10C4 5.59 7.59 2 12 2M12 4C8.69 4 6 6.69 6 10C6 11.23 6.38 12.39 7.03 13.39L12 18.42L16.97 13.39C17.62 12.39 18 11.23 18 10C18 6.69 15.31 4 12 4Z" />
+                    <path fill="#f0abf0" d="M12 7L13.78 10.87L18 11.5L15 14.24L15.61 18L12 16.14L8.39 18L9 14.24L6 11.5L10.22 10.87L12 7Z" />
+                    <path fill="#e30b5c" d="M21 7.2L16.8 6.4L15 2L12 4.4L9 2L7.2 6.4L3 7.2L6.15 10.35L5.4 15L9.6 13.2L12 17.4L14.4 13.2L18.6 15L17.85 10.35L21 7.2Z" />
+                </svg>
+            </div>
+
+            <!-- Logo Facebook ở dưới cùng (Responsive) -->
+            <a href="https://www.facebook.com/share/14Levyv4joV/" target="_blank" class="absolute bottom-5 right-5 z-20 transition duration-300 hover:scale-110 p-2" aria-label="Liên kết tới trang Facebook cá nhân">
+                <!-- Icon Facebook SVG nhỏ -->
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-blue-600 rounded-full bg-white p-1 shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.0267 5.7176 21.2343 10.6053 21.9213V14.8943H7.90117V12H10.6053V9.75704C10.6053 7.12643 12.1837 5.6792 14.498 5.6792C15.5878 5.6792 16.7171 5.87532 16.7171 5.87532V8.30906H15.421C14.1627 8.30906 13.7548 9.07923 13.7548 9.87895V12H16.5133L16.0827 14.8943H13.7548V21.9213C18.6424 21.2343 22 17.0267 22 12Z"/>
+                </svg>
+            </a>
+
+            <!-- Hoa hồng bay lượn (sẽ được thêm bằng JS) -->
+            <div id="roseContainer"></div>
+
+        </div>
+
+        <!-- VÙNG THÔNG ĐIỆP (BOTTOM SCREEN) - Sẽ di chuyển lên khi mở quà -->
+        <div id="giftMessage" class="gift-message bg-pink-100 final-bg-pulse">
+            <!-- Tối ưu Responsive cho hộp thông điệp -->
+            <div id="innerLight" class="p-6 sm:p-10 rounded-xl bg-white shadow-2xl max-w-md md:max-w-3xl w-full">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-pink-700 mb-4 sm:mb-6 border-b-4 border-pink-700 pb-2">
+                    LỜI CHÚC TỪ TẬP THỂ NAM SINH 12A1
+                </h2>
+                <!-- Tối ưu Responsive cho nội dung chữ -->
+                <div class="text-sm sm:text-lg text-gray-800 text-left leading-relaxed space-y-3 sm:space-y-4">
+                    <p>
+                        Gửi tặng những người phụ nữ tuyệt vời nhất *12A1* và *Cô giáo chủ nhiệm* kính mến!
+                    </p>
+                    <p>
+                        Nhân ngày 20/11, chúng em xin gửi lời chúc chân thành nhất. Chúc các bạn và Cô luôn xinh đẹp, rạng rỡ, gặt hái nhiều thành công, và là nguồn cảm hứng bất tận cho cả lớp. Cảm ơn vì đã cùng chúng em tạo nên những kỷ niệm đáng nhớ trong suốt những năm tháng học trò này.
+                    </p>
+                    <p class="mt-6 font-semibold text-pink-600 text-right">
+                        Trân trọng,<br>
+                        Tập thể nam sinh 12A1.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Firebase Imports & Setup (MANDATORY) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Bật log debug cho Firestore
+        setLogLevel('debug');
+
+        // Định nghĩa các biến toàn cục bắt buộc
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let app, db, auth;
+
+        // Khởi tạo Firebase và xác thực
+        try {
+            if (Object.keys(firebaseConfig).length > 0) {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                    // console.log("Signed in with custom token.");
+                } else {
+                    await signInAnonymously(auth);
+                    // console.log("Signed in anonymously.");
+                }
+            } else {
+                // console.warn("Firebase config is empty. Proceeding without Firebase services.");
+            }
+        } catch (error) {
+            console.error("Firebase Initialization or Authentication failed:", error);
+        }
+    </script>
+
+    <!-- Logic mở quà và hiệu ứng -->
+    <script>
+        const viewportContainer = document.getElementById('viewportContainer');
+        const giftBox = document.getElementById('giftBox');
+        const giftMessage = document.getElementById('giftMessage');
+        const innerLight = document.getElementById('innerLight');
+        const body = document.body;
+        const roseContainer = document.getElementById('roseContainer');
+        let giftOpened = false;
+
+        // Hàm tạo cánh hoa hồng SVG
+        function createRose() {
+            const rose = document.createElement('span');
+            rose.classList.add('rose', 'floating-rose');
+            rose.innerHTML = '&#x1F339;'; // Ký tự hoa hồng (Unicode)
+            const size = Math.random() * 15 + 15; // Kích thước 15px - 30px
+            rose.style.fontSize = `${size}px`;
+            rose.style.left = `${Math.random() * 100}vw`;
+            rose.style.animationDuration = `${Math.random() * 3 + 3}s`; // 3s - 6s
+            rose.style.animationDelay = `${Math.random() * 2}s`;
+            return rose;
+        }
+
+        // Tạo 20 bông hoa hồng ban đầu bay lượn
+        for (let i = 0; i < 20; i++) {
+            roseContainer.appendChild(createRose());
+        }
+
+
+        // Hàm tạo hiệu ứng cánh hoa rơi (intensive)
+        function createFallingPetal() {
+            const petal = document.createElement('span');
+            petal.classList.add('falling-rose');
+            petal.innerHTML = '&#x1F339;'; // Ký tự hoa hồng
+            const size = Math.random() * 10 + 10;
+            petal.style.fontSize = `${size}px`;
+            petal.style.left = `${Math.random() * 100}vw`;
+            petal.style.animationDuration = `${Math.random() * 5 + 5}s`; // Rơi nhanh hơn
+            petal.style.animationDelay = `-${Math.random() * 5}s`; // Bắt đầu rơi ngay lập tức
+            // Đảm bảo hoa rơi vào vùng thông điệp
+            giftMessage.appendChild(petal);
+        }
+
+        // Hàm chính mở quà
+        function openGift() {
+            if (giftOpened) return;
+            giftOpened = true;
+
+            // 1. Dừng hiệu ứng rung lắc và ẩn text
+            giftBox.classList.remove('gift-box-shake');
+            document.querySelectorAll('.rainbow-text-glow').forEach(el => el.style.opacity = '0');
+
+            // 2. Kích hoạt hiệu ứng 'lia cam' (chuyển cảnh)
+            viewportContainer.classList.add('viewport-opened');
+            body.classList.add('final-bg-pulse'); // Bắt đầu hiệu ứng nền đổi màu
+
+            // 3. Hiệu ứng ánh sáng trắng và hiển thị thông điệp (sau khi lia cam)
+            setTimeout(() => {
+                // Ánh sáng trắng
+                giftMessage.classList.add('open-light');
+
+                // Hiển thị nội dung
+                innerLight.style.opacity = '1';
+                innerLight.style.transform = 'scale(1)';
+
+                // 4. Kích hoạt hiệu ứng hoa hồng rơi
+                // Xóa hoa hồng lơ lửng ban đầu
+                roseContainer.innerHTML = '';
+                // Thêm 100 cánh hoa rơi mới
+                for (let i = 0; i < 100; i++) {
+                    createFallingPetal();
+                }
+
+                // Chuyển nền body sang màu hồng đậm hơn để hiệu ứng pulse hoạt động tốt hơn
+                body.style.backgroundColor = '#fb7185';
+
+            }, 3000); // Tăng thời gian chờ lên 3000ms (3s) để khớp với transition 3.5s
+
+            // Ngăn người dùng click lại
+            giftBox.onclick = null;
+        }
+
+    </script>
+
+</body>
+</html>
+
